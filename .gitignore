@@ -1,0 +1,20 @@
+# 忽略 Go 的中间文件和二进制文件
+bin/
+pkg/
+*.exe
+*.test
+*.out
+
+# 忽略 IDE 配置文件
+.idea/
+.vscode/
+
+# 忽略本地开发环境文件
+.env
+.env.local
+
+# 忽略其他生成的文件
+*.log
+*.tmp
+
+Internal/common/
