@@ -48,7 +48,7 @@ function gen_for_modules() {
     fi
     log_info "generating code for $service"
 
-    run protoc \
+    run \
       -I="/usr/local/include/" \
       -I="${API_ROOT}" \
       "--go_out=${go_out}" --go_opt=paths=source_relative \
