@@ -1,7 +1,9 @@
-# 忽略 Go 的中间文件和二进制文件
-bin/
-pkg/
 *.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
 *.test
 *.out
 
@@ -12,9 +14,16 @@ pkg/
 # 忽略本地开发环境文件
 .env
 .env.local
+.DS_Store
 
 # 忽略其他生成的文件
 *.log
 *.tmp
 
-internal/common/
+**/tmp
+**/bin
+
+.gobincache/
+# Go workspace file
+go.work
+go.work.sum
