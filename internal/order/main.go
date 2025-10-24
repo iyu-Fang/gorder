@@ -21,11 +21,13 @@ func init() {
 
 func main() {
 	serviceName := viper.GetString("order.service-name")
-	
+
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	applicaiton := service.NewApplication(ctx)
+	applicaiton, cleanup := service.NewApplication(ctx)
+	defer cleanup()
+
 	go server.RunGRPCServer(serviceName, func(server *grpc.Server) {
 		svc := ports.NewGRPCServer(applicaiton)
 		orderpb.RegisterOrderServiceServer(server, svc)
