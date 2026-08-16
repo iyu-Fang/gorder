@@ -4,7 +4,15 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	"github.com/iyu-Fang/gorder/common/config"
 )
+
+func init() {
+	if err := config.NewViperConfig(); err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main() {
 	log.Println("Listening on 8082...")
