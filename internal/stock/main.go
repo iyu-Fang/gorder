@@ -1,12 +1,21 @@
 package main
 
 import (
+	"log"
+
+	"github.com/iyu-Fang/gorder/common/config"
 	"github.com/iyu-Fang/gorder/common/genproto/stockpb"
 	"github.com/iyu-Fang/gorder/common/server"
 	"github.com/iyu-Fang/gorder/stock/ports"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 )
+
+func init() {
+	if err := config.NewViperConfig(); err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main() {
 	serviceName := viper.GetString("stock.service-name")
