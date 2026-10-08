@@ -5,8 +5,8 @@ go 1.26.5
 require (
 	github.com/gin-gonic/gin v1.10.1
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
-	github.com/oapi-codegen/runtime v1.1.2
-	github.com/sirupsen/logrus v1.8.1
+	github.com/oapi-codegen/runtime v1.7.0
+	github.com/sirupsen/logrus v1.9.1
 	github.com/spf13/viper v1.21.0
 	google.golang.org/grpc v1.83.1
 	google.golang.org/protobuf v1.36.12
