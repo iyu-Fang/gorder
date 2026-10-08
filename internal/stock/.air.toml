@@ -1,24 +1,24 @@
 #:schema https://json.schemastore.org/any.json
 
 env_files = []
-root = "."
+root = ".."
 testdata_dir = "testdata"
-tmp_dir = "tmp"
+tmp_dir = "stock/tmp"
 
 [build]
   args_bin = []
-  bin = "./tmp/main"
+  bin = "./stock/tmp/main"
   cmd = "go build -o ./tmp/main ."
   delay = 1000
-  entrypoint = ["./tmp/main"]
-  exclude_dir = ["assets", "tmp", "vendor", "testdata"]
+  entrypoint = ["./stock/tmp/main"]
+  exclude_dir = ["assets", "order/tmp", "stock/tmp", "vendor", "testdata"]
   exclude_file = []
   exclude_regex = ["_test.go"]
   exclude_unchanged = false
   follow_symlink = false
   full_bin = ""
   ignore_dangerous_root_dir = false
-  include_dir = []
+  include_dir = ["common", "stock"]
   include_ext = ["go", "tpl", "tmpl", "html"]
   include_file = []
   kill_delay = "0s"
@@ -34,9 +34,9 @@ tmp_dir = "tmp"
 
   [build.windows]
     args_bin = []
-    bin = "tmp\\main.exe"
+    bin = "stock\\tmp\\main.exe"
     cmd = "go build -o ./tmp/main.exe ."
-    entrypoint = ["tmp\\main.exe"]
+    entrypoint = [".\\stock\\tmp\\main.exe"]
     full_bin = ""
     post_cmd = []
     pre_cmd = []
