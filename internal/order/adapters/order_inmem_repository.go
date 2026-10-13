@@ -15,10 +15,10 @@ type MemoryOrderRepository struct {
 	store []*domain.Order
 }
 
-func NewMemoryOrderRepository(lock *sync.RWMutex, store []*domain.Order) *MemoryOrderRepository {
+func NewMemoryOrderRepository() *MemoryOrderRepository {
 	return &MemoryOrderRepository{
-		lock:  lock,
-		store: store,
+		lock:  &sync.RWMutex{},
+		store: make([]*domain.Order, 0),
 	}
 }
 

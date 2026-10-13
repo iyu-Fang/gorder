@@ -6,12 +6,12 @@ import (
 )
 
 type Repository interface {
-	Create(ctx context.Context, *Order) (*Order, error)
+	Create(context.Context, *Order) (*Order, error)
 	Get(ctx context.Context, id, customerID string) (*Order, error)
 	Update(
-		ctx context.Context, 
-		o *Order, 
-		updateFn func(context.Context, *Order) (*Order error),
+		ctx context.Context,
+		o *Order,
+		updateFn func(context.Context, *Order) (*Order, error),
 	) error
 }
 
