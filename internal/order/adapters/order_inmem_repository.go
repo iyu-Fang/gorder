@@ -2,9 +2,8 @@ package adapters
 
 import (
 	"context"
-	"strconv"
+	"crypto/rand"
 	"sync"
-	"time"
 
 	domain "github.com/iyu-Fang/gorder/order/domain/order"
 	"github.com/sirupsen/logrus"
@@ -27,7 +26,7 @@ func (m *MemoryOrderRepository) Create(_ context.Context, order *domain.Order) (
 	m.lock.Lock()
 	defer m.lock.Unlock()
 	newOrder := &domain.Order{
-		ID:          strconv.FormatInt(time.Now().Unix(), 10),
+		ID:          rand.Text(),
 		CustomerID:  order.CustomerID,
 		Status:      order.Status,
 		PaymentLink: order.PaymentLink,
@@ -48,7 +47,7 @@ func (m *MemoryOrderRepository) Get(_ context.Context, id string, customerID str
 
 	for _, o := range m.store {
 		if o.ID == id && o.CustomerID == customerID {
-			logrus.Debug("memory_order_repo_get||found||id=%s||customerID=%s||res=%+v", id, customerID, *o)
+			logrus.Debugf("memory_order_repo_get||found||id=%s||customerID=%s||res=%+v", id, customerID, *o)
 			return o, nil
 		}
 	}

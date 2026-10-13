@@ -14,7 +14,7 @@ type MemoryStockRepository struct {
 }
 
 var stub = map[string]*orderpb.Item{
-	"item_id": {
+	"foo_item": {
 		Id:       "foo_item",
 		Name:     "stub item",
 		Quantity: 10000,
