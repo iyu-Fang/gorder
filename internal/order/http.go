@@ -31,7 +31,7 @@ func (H HTTPServer) PostCustomerCustomerIdOrders(c *gin.Context, customerId stri
 	c.JSON(http.StatusOK, gin.H{
 		"message":     "success",
 		"customer_id": req.CustomerId,
-		"order_id":    r.OrderID,
+		"id":          r.OrderID,
 	})
 }
 
