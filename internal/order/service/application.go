@@ -18,6 +18,7 @@ func NewApplication(ctx context.Context) app.Application {
 	return app.Application{
 		Commands: app.Commands{
 			CreateOrder: command.NewCreateOrderHandler(orderRepo, logger, metricsClient),
+			UpdateOrder: command.NewUpdateOrderHandler(orderRepo, logger, metricsClient),
 		},
 		Queries: app.Queries{
 			GetCustomerOrder: query.NewGetCustomerOrderHandler(orderRepo, logger, metricsClient),
