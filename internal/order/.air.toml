@@ -35,7 +35,7 @@ tmp_dir = "order/tmp"
   [build.windows]
     args_bin = []
     bin = "order\\tmp\\main.exe"
-    cmd = "go build -o ./tmp/main.exe ."
+    cmd = "go build -trimpath -o ./tmp/main.exe ."
     entrypoint = [".\\order\\tmp\\main.exe"]
     full_bin = ""
     post_cmd = []
